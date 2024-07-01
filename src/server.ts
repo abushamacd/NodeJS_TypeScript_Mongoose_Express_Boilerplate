@@ -1,5 +1,5 @@
 import { errorLogger, logger } from './utilities/logger'
-import { bootStrap } from './utilities/bootStrap'
+import { main } from './utilities/main'
 import { Server } from 'http'
 let server: Server
 
@@ -8,7 +8,7 @@ process.on('uncaughtException', error => {
   process.exit(1)
 })
 
-bootStrap()
+main()
 
 process.on('SIGTERM', () => {
   logger.info(`Sigterm is received`)

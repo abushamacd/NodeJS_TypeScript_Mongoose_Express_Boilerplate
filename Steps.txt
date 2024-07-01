@@ -561,7 +561,8 @@ Formating tryCatch and Response
                 }
             )
 
-Handle Unknown api in the app.ts 
+Handle Unknown api in the app.ts
+---------------------------------- 
         // Unknown API Handle
         app.use((req: Request, res: Response, next: NextFunction) => {
             res.status(status.NOT_FOUND).json({
@@ -576,6 +577,14 @@ Handle Unknown api in the app.ts
             })
             next()
         })
+
+Update Packeage & Dependency
+-----------------------------
+        sudo npm install bcrypt cors cookie-parser dotenv express http-status jsonwebtoken mongoose winston winston-daily-rotate-file zod
+
+        
+        sudo npm install -D @types/bcrypt @types/cookie-parser @types/cors @types/express @types/jsonwebtoken @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier husky lint-staged prettier ts-node-dev typescript
+
 
 
 

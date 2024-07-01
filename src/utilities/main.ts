@@ -6,15 +6,17 @@ import { errorLogger, logger } from './logger'
 import { Server } from 'http'
 let server: Server
 
-export async function bootStrap() {
+export async function main() {
   try {
     await mongoose.connect(config.db_uri as string)
     server = app.listen(config.port, (): void => {
       logger.info(
-        `==== ✌️  Your server is running on http://localhost:${config.port} ====`
+        config.env === 'development'
+          ? `==== ✌️  Your server is running on http://localhost:${config.port} ====`
+          : `==== Test on deployed live server ====`
       )
     })
-    logger.info(`==== ✌️  DB Connection is succesfully ====`)
+    logger.info(`==== ✌️  Database Connection Successful ====`)
   } catch (error) {
     errorLogger.error(`==== 🤞  Database Connection Error ====`, error)
   }
